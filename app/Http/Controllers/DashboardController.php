@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\SubCategory;
 use Illuminate\Http\Request;
 use Str;
 
@@ -69,7 +70,7 @@ class DashboardController extends Controller
 
         $allcategory = Category::all();
 
-        return view('dashboard.dashpages.allcategory')->with('all_category', $allcategory);
+        return view('dashboard.dashpages.allcategory', ['all_category' => $allcategory]);
 
     }
 
@@ -142,6 +143,12 @@ class DashboardController extends Controller
 
 
     }
+
+
+
+
+    
+
 
 
 }

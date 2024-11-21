@@ -292,6 +292,8 @@
                                 </i>
                             </a>
                         </li>
+
+
                         <li class="nav-item">
                             <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false"
                             aria-controls="ui-basic">
@@ -319,6 +321,42 @@
                                 </ul>
                             </div>
                         </li>
+
+
+                        {{-- subcategory --}}
+
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="collapse" href="#subcategory" aria-expanded="false"
+                            aria-controls="subcategory">
+                                <span class="menu-title">
+                                    Sub Category
+                                </span>
+                                <i class="menu-arrow">
+                                </i>
+                                <i class="mdi mdi-crosshairs-gps menu-icon">
+                                </i>
+                            </a>
+                            <div class="collapse" id="subcategory">
+                                <ul class="nav flex-column sub-menu">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('addsubcategory') }}">
+                                            Add Sub Category
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('allsubcategory') }}">
+                                            All Sub Category
+                                        </a>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
+                        </li>
+
+                        {{-- end of subcategory --}}
+
+                        
+
                         <li class="nav-item">
                             <a class="nav-link" data-bs-toggle="collapse" href="#icons" aria-expanded="false"
                             aria-controls="icons">

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SubCategoryController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -35,3 +36,16 @@ Route::post('update-category/{id}', [DashboardController::class, 'update_categor
 
 //delete category
 Route::delete('delete-category/{id}', [DashboardController::class, 'delete_category'])->name('delete_category');
+
+
+
+
+//sub category
+Route::get('add-sub-category', [SubCategoryController::class, 'add_sub_category'])->name('addsubcategory');
+
+Route::post('store-sub-category', [SubCategoryController::class, 'store_sub_category'])->name('store_sub_category');
+
+
+Route::get('all-sub-category', [SubCategoryController::class, 'all_sub_category'])->name('allsubcategory');
+
+
