@@ -311,7 +311,7 @@
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="dashboard/pages/ui-features/dropdowns.html">
+                                        <a class="nav-link" href="{{ route('allcategory') }}">
                                             All Category
                                         </a>
                                     </li>

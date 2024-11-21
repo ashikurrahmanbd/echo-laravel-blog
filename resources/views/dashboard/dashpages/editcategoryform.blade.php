@@ -31,11 +31,9 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">
-                        Add New Category
+                        Udate Category
                     </h4>
-                    <p class="card-description">
-                        Add your category
-                    </p>
+                    
 
                     @session('success')
 
@@ -43,15 +41,13 @@
 
                     @endsession
 
-                    <form class="forms-sample" action="{{ route('storecategory') }}" method="POST">
+                    <form class="forms-sample" action="{{ route('updatecategory', $category->id) }}" method="POST">
 
                         @csrf
 
                         <div class="form-group">
-                            <label for="categoryname">
-                                Category Name
-                            </label>
-                            <input type="text" class="form-control" id="categoryname" placeholder="Category Name" name="categoryname">
+                            
+                            <input type="text" class="form-control" id="categoryname" placeholder="Category Name" name="categoryname" value="{{ $category->categoryname }}">
 
                             <div class="error-wrapper mt-2">
                                 @error('categoryname')
@@ -63,7 +59,7 @@
                         
                         
                         <button type="submit" class="btn btn-gradient-primary me-2">
-                            Submit
+                            Update
                         </button>
                        
                     </form>
