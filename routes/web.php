@@ -21,6 +21,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
+
+
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 //dashboard related route
@@ -68,5 +70,8 @@ Route::get('all-posts', [PostController::class, 'all_posts'])->name('all_posts')
 
 //subcategory ajax
 Route::get('get-sub-category', [PostController::class, 'get_sub_category'])->name('get_sub_category');
+
+
+
 
 
