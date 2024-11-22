@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\SubCategoryController;
 use Illuminate\Support\Facades\Route;
 
@@ -47,5 +48,12 @@ Route::post('store-sub-category', [SubCategoryController::class, 'store_sub_cate
 
 
 Route::get('all-sub-category', [SubCategoryController::class, 'all_sub_category'])->name('allsubcategory');
+
+
+//Post Routes
+Route::get('add-new-post-form', [PostController::class, 'add_new_post_form'])->name('add_new_post_form');
+
+//create post
+Route::post('create-post', [PostController::class, 'create_post'])->name('create_post');
 
 

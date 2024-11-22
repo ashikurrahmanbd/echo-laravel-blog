@@ -355,6 +355,38 @@
 
                         {{-- end of subcategory --}}
 
+
+                        {{-- Post Menu --}}
+
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="collapse" href="#posts" aria-expanded="false"
+                            aria-controls="posts">
+                                <span class="menu-title">
+                                    Posts
+                                </span>
+                                <i class="menu-arrow">
+                                </i>
+                                <i class="mdi mdi-crosshairs-gps menu-icon">
+                                </i>
+                            </a>
+                            <div class="collapse" id="posts">
+                                <ul class="nav flex-column sub-menu">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('add_new_post_form') }}">
+                                            Add Post
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">
+                                            All Posts
+                                        </a>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
+                        </li>
+
+                        {{-- end of Post Menu --}}
                         
 
                         <li class="nav-item">
@@ -545,6 +577,9 @@
         <!-- Custom js for this page -->
         <script src="dashboard/assets/js/dashboard.js">
         </script>
+
+        @stack('myjscript')
+
         <!-- End custom js for this page -->
     </body>
 
