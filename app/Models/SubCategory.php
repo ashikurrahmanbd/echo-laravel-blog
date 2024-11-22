@@ -20,5 +20,11 @@ class SubCategory extends Model
         return $relation;
 
     }
+
+    //for posts relation
+    public function posts()
+    {
+        return $this->hasMany(Post::class, 'post_subcategory', 'id');
+    }
     
 }

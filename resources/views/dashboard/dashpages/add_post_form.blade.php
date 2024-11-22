@@ -44,6 +44,11 @@
                         @csrf
 
                         <div class="form-group">
+
+                            @session('success')
+                                <div class="alert alert-success">{{ session('success') }}</div>
+                            @endsession
+
                             <label for="post_title">
                                 Post Title
                             </label>
@@ -63,8 +68,15 @@
                                 </label>
                                 <select class="form-select" id="post_category" name="post_category">
                                     <option value="">select Category</option>
-                                    <option>Category 1</option>
-                                    <option>Category 2</option>
+
+                                    @forelse ($categories as $category)
+                                    <option value="{{ $category->id }}">{{ $category->categoryname }}</option>
+                                    @empty
+                                        <option disabled>No categories available</option>
+                                    @endforelse
+                                    
+
+
                                 </select>
 
                                 @error('post_category')
@@ -79,10 +91,12 @@
                                 <label for="post_subcategory">
                                     SubCategory
                                 </label>
-                                <select class="form-select" id="post_subcategory" name="post_subcategory">
-                                    <option value="">select SubCategory</option>
-                                    <option>SubCategory 1</option>
-                                    <option>SubCategory 2</option>
+                                <select class="form-select post_subcat" id="post_subcategory" name="post_subcategory">
+                                    
+                                    
+                                    {{-- doing all the appending using jquery --}}
+                                    
+
                                 </select>
 
                                 @error('post_subcategory')
@@ -147,5 +161,54 @@
             console.log(error)
         } )
     </script>
+
+    {{-- subcategory Ajax --}}
+    <script>
+
+        $('document').ready(function(){
+
+
+            $('#post_category').change(function (e) { 
+                
+                $.ajax({
+                    type: "GET",
+                    url: "{{ route('get_sub_category') }}",
+                    data: {
+                        id: $(this).val(),
+                       
+                    },
+                   
+                    success: function (response) {
+
+                        let options = [];
+
+                        if(response.length > 0){
+
+                            response.forEach((element) => {
+
+                                options.push(`<option value="${element.id}"> ${ element.subcategory_name } </option>`)
+
+                            })
+
+                            $('.post_subcat').html(options);
+
+                        }else{
+
+                            options.push(`<option value=""> SubCategory Not Found </option>`);
+                            $('.post_subcat').html(options);
+
+                        }
+
+
+                    }
+                });
+                
+            });
+
+        })
+
+    </script>
+
+    
 
 @endpush

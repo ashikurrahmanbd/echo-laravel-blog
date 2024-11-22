@@ -25,5 +25,11 @@ class Category extends Model
 
     }
 
+    //for home page posts
+    public function posts()
+    {
+        return $this->hasMany(Post::class, 'post_category', 'id');
+    }
+
 
 }
